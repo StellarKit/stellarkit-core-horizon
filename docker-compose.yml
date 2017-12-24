@@ -1,7 +1,7 @@
 stellar_core:
-    image: sgehrman/stellar-core
+    image: sgehrman/stellar-node
     command: --testnet
-    container_name: stellar-core
+    container_name: stellar-node
     volumes:
       - /home/steve/stellar-test:/opt/stellar
     restart: unless-stopped
