@@ -32,6 +32,10 @@ ADD common /opt/stellar-default/common
 ADD pubnet /opt/stellar-default/pubnet
 ADD testnet /opt/stellar-default/testnet
 
+RUN ["chmod", "+x", "/opt/stellar-default/common/core/bin/start"]
+RUN ["chmod", "+x", "/opt/stellar-default/common/horizon/bin/start"]
+RUN ["chmod", "+x", "/opt/stellar-default/common/horizon/bin/horizon"]
+ 
 ADD start /
 RUN ["chmod", "+x", "start"]
 
