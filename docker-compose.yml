@@ -1,5 +1,5 @@
 stellar_core:
-    image: sgehrman/stellar-node
+    image: sgehrman/stellar-core
     command: --testnet
     container_name: stellar-core
     volumes:
