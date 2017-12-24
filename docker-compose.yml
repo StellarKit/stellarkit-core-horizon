@@ -7,5 +7,5 @@ stellar_core:
     restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: password
-     ports:
+    ports:
       - 8000:8000/tcp
