@@ -1,7 +1,7 @@
 #!/bin/bash
 
 while ! psql -U stellar -c 'select 1' core &> /dev/null ; do
-  echo "Waiting for postgres to be available..."
+  echo "Waiting for core postgres to be available..."
   sleep 1
 done
 
