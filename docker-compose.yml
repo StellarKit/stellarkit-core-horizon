@@ -5,9 +5,9 @@ services:
       command: --testnet
       container_name: stellar-node
       volumes:
-        - /home/steve/stellar-test:/opt/stellar
+        - ~/stellar-test:/opt/stellar
       restart: unless-stopped
       environment:
         POSTGRES_PASSWORD: password
       ports:
-        - 8000:8000/tcp
+        - "8000:8000"
