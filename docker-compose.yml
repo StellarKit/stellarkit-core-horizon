@@ -1,11 +1,13 @@
-stellar_core:
-    image: sgehrman/stellar-node
-    command: --testnet
-    container_name: stellar-node
-    volumes:
-      - /home/steve/stellar-test:/opt/stellar
-    restart: unless-stopped
-    environment:
-      POSTGRES_PASSWORD: password
-    ports:
-      - 8000:8000/tcp
+version: "3"
+services:
+  stellar_core:
+      image: sgehrman/stellar-node
+      command: --testnet
+      container_name: stellar-node
+      volumes:
+        - /home/steve/stellar-test:/opt/stellar
+      restart: unless-stopped
+      environment:
+        POSTGRES_PASSWORD: password
+      ports:
+        - 8000:8000/tcp
