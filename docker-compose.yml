@@ -1,6 +1,6 @@
 version: "3"
 services:
-  stellar_core:
+  stellarcore:
       image: sgehrman/stellar-node
       command: --testnet
       container_name: stellar-node
