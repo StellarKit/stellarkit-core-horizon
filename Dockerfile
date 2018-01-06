@@ -28,6 +28,7 @@ ADD start /
 RUN ["chmod", "+x", "/start"]
 
 COPY init.sql /docker-entrypoint-initdb.d/
+RUN ["chown", "-R", "postgres", "/docker-entrypoint-initdb.d"]
 
 EXPOSE 5432
 EXPOSE 8000
