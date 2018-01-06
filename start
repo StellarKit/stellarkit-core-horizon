@@ -12,14 +12,14 @@ then
 fi
 
 function main() {
+	while ! sudo -u postgres psql -c 'select 1' &> /dev/null ; do
+	  echo "Waiting for postgres to be available..."
+	  sleep 1
+  done
+
 	echo ""
 	echo "Starting Stellar Node"
 	echo ""
-
-	while ! psql -c 'select 1' >/dev/null 2>&1; do
-    echo "Waiting for postgres to be available..."
-    sleep 1
-  done
 
 	build-config /configs/stellar.cfg > /opt/stellar/stellar.cfg
 	build-config /configs/horizon.env > /opt/stellar/horizon.env
