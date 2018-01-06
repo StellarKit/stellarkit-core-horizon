@@ -16,6 +16,12 @@ function main() {
 	echo "Starting Stellar Node"
 	echo ""
 
+	build-config /configs/stellar.cfg > /opt/stellar/stellar.cfg
+	build-config /configs/horizon.env > /opt/stellar/horizon.env
+
+	build-config /configs/stellar-testnet.cfg > /opt/stellar/stellar-testnet.cfg
+	build-config /configs/horizon-testnet.env > /opt/stellar/horizon-testnet.env
+
  	init_stellar_core
 	init_horizon
 

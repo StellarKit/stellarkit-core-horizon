@@ -13,8 +13,8 @@ RUN /install
 
 RUN ["mkdir", "-p", "/opt/stellar"]
 
-ADD build-config /
-RUN ["chmod", "+x", "/build-config"]
+ADD build-config /usr/bin/build-config
+RUN ["chmod", "+x", "/usr/bin/build-config"]
 
 ADD start-core /
 RUN ["chmod", "+x", "/start-core"]
@@ -23,11 +23,6 @@ ADD start-horizon /
 RUN ["chmod", "+x", "/start-horizon"]
 
 ADD configs /configs
-RUN /build-config /configs/stellar.cfg > /opt/stellar/stellar.cfg
-RUN /build-config /configs/horizon.env > /opt/stellar/horizon.env
-
-RUN /build-config /configs/stellar-testnet.cfg > /opt/stellar/stellar-testnet.cfg
-RUN /build-config /configs/horizon-testnet.env > /opt/stellar/horizon-testnet.env
 
 ADD start /
 RUN ["chmod", "+x", "/start"]
