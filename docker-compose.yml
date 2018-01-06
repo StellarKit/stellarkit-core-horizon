@@ -1,7 +1,6 @@
 version:                 "3"
 services:
   nodedatabase:
-    image:               postgres
     build:               ./postgres-docker
     container_name:      postgres-node
     restart:             unless-stopped
