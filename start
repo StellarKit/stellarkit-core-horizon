@@ -1,9 +1,7 @@
 #! /usr/bin/env bash
 set -e
 
-export STELLAR_HOME="/opt/stellar"
-export COREHOME="$STELLAR_HOME/core"
-export HZHOME="$STELLAR_HOME/horizon"
+STELLAR_HOME="/opt/stellar"
 
 function main() {
 	echo ""
@@ -25,18 +23,18 @@ function main() {
   }
 
 function init_stellar_core() {
-	if [ -f $COREHOME/.core-initialized ]; then
+	if [ -f $STELLAR_HOME/.core-initialized ]; then
 		echo "core: already initialized"
 		return 0
 	fi
 
 	stellar-core --newdb --conf $CORE_CONFIG
 
-	touch .core-initialized
+	touch $STELLAR_HOME/.core-initialized
  }
 
 function init_horizon() {
-	if [ -f $HZHOME/.horizon-initialized ]; then
+	if [ -f $STELLAR_HOME/.horizon-initialized ]; then
 		echo "horizon: already initialized"
 		return 0
 	fi
@@ -44,7 +42,7 @@ function init_horizon() {
 	source $HORIZ_ENV
   horizon db init
 
-	touch .horizon-initialized
+	touch $STELLAR_HOME/.horizon-initialized
  }
 
 main $@
