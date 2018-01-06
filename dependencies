@@ -1,6 +1,6 @@
 # dependencies
 apt-get update
-apt-get install -y curl git libpq-dev libsqlite3-dev libsasl2-dev postgresql-client postgresql postgresql-contrib sudo vim zlib1g-dev python
+apt-get install -y curl git libpq-dev libsasl sqlite-dev libsqlite3-dev libsasl2-dev postgresql-client postgresql postgresql-contrib sudo vim zlib1g-dev python ca-certificates
 apt-get clean
 
 echo "\nDone installing dependencies...\n"
