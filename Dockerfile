@@ -1,4 +1,4 @@
-FROM stellar/base:latest
+FROM ubuntu:latest
 
 ENV STELLAR_CORE_VERSION 9.0.0-473-59482f9d
 ENV HORIZON_VERSION 0.11.1
@@ -26,6 +26,8 @@ ADD configs /configs
 
 ADD start /
 RUN ["chmod", "+x", "/start"]
+
+ADD init.sql /docker-entrypoint-initdb.d/
 
 EXPOSE 5432
 EXPOSE 8000

@@ -1,28 +1,11 @@
 version: "3"
 services:
-  horizondatabase:
-    image: postgres
-    container_name: postgres-horizon
-    restart: unless-stopped
-    volumes:
-      - ~/stellar-test/postgres-horizon:/var/lib/postgresql/data
-    environment:
-      POSTGRES_USER: stellar
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: horizondb
-    networks:
-      - default
-
-  coredatabase:
+  database:
     image: postgres
     container_name: postgres-core
     restart: unless-stopped
     volumes:
-      - ~/stellar-test/postgres-core:/var/lib/postgresql/data
-    environment:
-      POSTGRES_USER: stellar
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: coredb
+      - ~/stellar-test/postgres-horizon:/var/lib/postgresql/data
     networks:
       - default
 
@@ -37,8 +20,8 @@ services:
       - horizondatabase
     environment:
       TESTNET: 1
-      HORIZON_DB_DSN: "postgres://stellar:password@horizondatabase/horizondb?sslmode=disable"
-      CORE_DB_DSN: "postgres://stellar:password@coredatabase/coredb?sslmode=disable"
+      HORIZON_DB_DSN: "postgres://stellar@database/horizondb?sslmode=disable"
+      CORE_DB_DSN: "postgres://stellar@database/coredb?sslmode=disable"
     ports:
       - "8000:8000"
     networks:
