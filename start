@@ -10,7 +10,8 @@ function main() {
 
 	CORE_CONFIG = "/opt/stellar/stellar.cfg"
 	HORIZ_ENV = "/opt/stellar/horizon.env"
-	if [ $TESTNET ]; then
+	if [ $TESTNET -gt 0 ]
+	then
 	  CORE_CONFIG = "/opt/stellar/stellar-testnet.cfg"
 		HORIZ_ENV = "/opt/stellar/horizon-testnet.env"
   fi
@@ -23,7 +24,8 @@ function main() {
   }
 
 function init_stellar_core() {
-	if [ -f $STELLAR_HOME/.core-initialized ]; then
+	if [ -f $STELLAR_HOME/.core-initialized ]
+	then
 		echo "core: already initialized"
 		return 0
 	fi
@@ -34,7 +36,8 @@ function init_stellar_core() {
  }
 
 function init_horizon() {
-	if [ -f $STELLAR_HOME/.horizon-initialized ]; then
+	if [ -f $STELLAR_HOME/.horizon-initialized ]
+	then
 		echo "horizon: already initialized"
 		return 0
 	fi
