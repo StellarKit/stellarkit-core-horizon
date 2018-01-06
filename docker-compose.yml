@@ -5,7 +5,7 @@ services:
     container_name: postgres-node
     restart: unless-stopped
     volumes:
-      - ~/stellar-test/postgres-horizon:/var/lib/postgresql/data
+      - ~/stellar-test/postgresql:/var/lib/postgresql/data
     networks:
       - default
 
@@ -19,9 +19,9 @@ services:
       - nodedatabase
     environment:
       TESTNET: 1
-      HORIZON_DB_DSN: "postgresql://stellar:password@nodedatabase/horizondb?sslmode=disable"
-      CORE_DB_DSN: "postgresql://stellar:password@nodedatabase/coredb?sslmode=disable"
-    ports:
+      CORE_DB_DSN: "postgresql://dbname=coredb host=nodedatabase user=stellar password=password"
+      HORIZON_DB_DSN: "postgres://stellar:password@nodedatabase/horizondb"
+     ports:
       - "8000:8000"
     networks:
       - default
