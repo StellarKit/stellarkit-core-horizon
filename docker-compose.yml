@@ -6,6 +6,10 @@ services:
     restart: unless-stopped
     volumes:
       - ~/stellar-test/postgresql:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: stellar
+      POSTGRES_DB: coredb
+      POSTGRES_PASSWORD: password
     networks:
       - default
 
