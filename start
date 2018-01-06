@@ -50,11 +50,6 @@ function init_horizon() {
 		return 0
 	fi
 
-	sudo -u postgres createdb horizondb
-	sudo -u postgres psql <<-SQL
-	  GRANT ALL PRIVILEGES ON DATABASE horizon to stellar;
-	SQL
-
 	source $HORIZ_ENV
   horizon db init
 
