@@ -12,10 +12,7 @@ then
 fi
 
 function main() {
-	while ! sudo -u postgres psql -c 'select 1' &> /dev/null ; do
-	  echo "Waiting for postgres to be available..."
-	  sleep 1
-  done
+	sleep 4
 
 	echo ""
 	echo "Starting Stellar Node"
