@@ -2,7 +2,7 @@ version: "3"
 services:
   database:
     image: postgres
-    container_name: postgres-core
+    container_name: postgres-node
     restart: unless-stopped
     volumes:
       - ~/stellar-test/postgres-horizon:/var/lib/postgresql/data
