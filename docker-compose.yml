@@ -19,8 +19,8 @@ services:
       - database
     environment:
       TESTNET: 1
-      HORIZON_DB_DSN: "postgres://stellar@database/horizondb?sslmode=disable"
-      CORE_DB_DSN: "postgres://stellar@database/coredb?sslmode=disable"
+      HORIZON_DB_DSN: "postgresql://stellar@database/horizondb?sslmode=disable"
+      CORE_DB_DSN: "postgresql://stellar@database/coredb?sslmode=disable"
     ports:
       - "8000:8000"
     networks:
