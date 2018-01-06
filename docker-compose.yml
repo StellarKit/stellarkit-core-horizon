@@ -16,8 +16,7 @@ services:
       - ~/stellar-test:/opt/stellar
     restart: unless-stopped
     depends_on:
-      - coredatabase
-      - horizondatabase
+      - database
     environment:
       TESTNET: 1
       HORIZON_DB_DSN: "postgres://stellar@database/horizondb?sslmode=disable"
