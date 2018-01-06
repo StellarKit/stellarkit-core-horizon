@@ -3,12 +3,12 @@ set -e
 
 STELLAR_HOME="/opt/stellar"
 
-CORE_CONFIG="/opt/stellar/stellar.cfg"
-HORIZ_ENV="/opt/stellar/horizon.env"
+export CORE_CONFIG="/opt/stellar/stellar.cfg"
+export HORIZ_ENV="/opt/stellar/horizon.env"
 if [ $TESTNET -gt 0 ]
 then
-	CORE_CONFIG="/opt/stellar/stellar-testnet.cfg"
-	HORIZ_ENV="/opt/stellar/horizon-testnet.env"
+	export CORE_CONFIG="/opt/stellar/stellar-testnet.cfg"
+	export HORIZ_ENV="/opt/stellar/horizon-testnet.env"
 fi
 
 function main() {
