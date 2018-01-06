@@ -1,7 +1,10 @@
 #! /bin/bash
 set -e
 
-sleep 2
+while ! psql -h nodedatabase -U stellar -c 'select 1' horizondb &> /dev/null ; do
+  echo "Waiting for horizondb to be available..."
+  sleep 1
+done
 
 while ! stellar-core --conf $CORE_CONFIG -c info &> /dev/null ; do
   echo "Waiting for stellar-core to be available..."

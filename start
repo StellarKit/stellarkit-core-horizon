@@ -24,6 +24,8 @@ function main() {
 	build-config /configs/stellar-testnet.cfg > /opt/stellar/stellar-testnet.cfg
 	build-config /configs/horizon-testnet.env > /opt/stellar/horizon-testnet.env
 
+	build-config /.pgpass > /root/.pgpass
+
  	init_stellar_core
 	init_horizon
 

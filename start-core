@@ -1,8 +1,11 @@
 #!/bin/bash
 set -e
 
-sleep 2
- 
+while ! psql -h nodedatabase -U stellar -c 'select 1' coredb &> /dev/null ; do
+  echo "Waiting for coredb to be available..."
+  sleep 1
+done
+
 echo "starting core..."
 
 exec /usr/local/bin/stellar-core --conf $CORE_CONFIG
