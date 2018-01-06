@@ -5,7 +5,7 @@ services:
     container_name: postgres-horizon
     restart: unless-stopped
     volumes:
-      - ~/stellar-testnet/postgres-horizon:/var/lib/postgresql/data
+      - ~/stellar-test/postgres-horizon:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: stellar
       POSTGRES_PASSWORD: password
@@ -18,7 +18,7 @@ services:
     container_name: postgres-core
     restart: unless-stopped
     volumes:
-      - ~/bifrost-testnet/postgres-core:/var/lib/postgresql/data
+      - ~/stellar-test/postgres-core:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: stellar
       POSTGRES_PASSWORD: password
