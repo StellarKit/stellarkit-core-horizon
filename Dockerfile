@@ -19,8 +19,8 @@ RUN ["chmod", "+x", "/build-config"]
 ADD start-core /
 RUN ["chmod", "+x", "/start-core"]
 
-ADD start-horizion /
-RUN ["chmod", "+x", "/start-horizion"]
+ADD start-horizon /
+RUN ["chmod", "+x", "/start-horizon"]
 
 ADD configs /
 RUN /build-config /configs/stellar.cfg > /opt/stellar/stellar.cfg
