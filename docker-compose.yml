@@ -24,7 +24,7 @@ services:
     environment:
       TESTNET:           1
       CORE_DB_DSN:       "postgresql://dbname=coredb host=nodedatabase user=stellar password=password sslmode=disable"
-      HORIZON_DB_DSN:    "postgres://stellar:password@nodedatabase/horizondb"
+      HORIZON_DB_DSN:    "postgres://stellar:password@nodedatabase/horizondb?sslmode=disable"
     ports:
       - "8000:8000"
     networks:
