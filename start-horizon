@@ -1,6 +1,5 @@
 #! /bin/bash
-
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+set -e
 
 while ! psql -U stellar -c 'select 1' horizon &> /dev/null ; do
   echo "Waiting for horizon postgres to be available..."
@@ -13,5 +12,6 @@ while ! stellar-core --conf /opt/stellar/core/etc/stellar-core.cfg -c info &> /d
 done
 
 echo "starting horizon..."
-set -e
-exec $DIR/horizon
+
+source $HORIZ_ENV
+exec /usr/local/bin/horizon $@
