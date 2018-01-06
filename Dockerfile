@@ -27,8 +27,6 @@ ADD configs /configs
 ADD start /
 RUN ["chmod", "+x", "/start"]
 
-COPY init.sql /docker-entrypoint-initdb.d/
-
 EXPOSE 5432
 EXPOSE 8000
 EXPOSE 11625
