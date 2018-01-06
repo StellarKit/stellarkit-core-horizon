@@ -36,7 +36,7 @@ services:
       - coredatabase
       - horizondatabase
     environment:
-      TESTNET: true
+      TESTNET: 1
       HORIZON_DB_DSN: "postgres://stellar:password@horizondatabase/horizondb?sslmode=disable"
       CORE_DB_DSN: "postgres://stellar:password@coredatabase/coredb?sslmode=disable"
     ports:
