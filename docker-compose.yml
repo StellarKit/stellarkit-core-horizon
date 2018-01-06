@@ -32,6 +32,9 @@ services:
     volumes:
       - ~/stellar-test:/opt/stellar
     restart: unless-stopped
+    depends_on:
+      - coredatabase
+      - horizondatabase
     environment:
       TESTNET: true
       HORIZON_DB_DSN: "postgres://stellar:password@horizondatabase/horizondb?sslmode=disable"

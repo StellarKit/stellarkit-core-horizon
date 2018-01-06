@@ -45,4 +45,5 @@ function init_horizon() {
 	touch $STELLAR_HOME/.horizon-initialized
  }
 
-main $@
+echo 'starting...'
+main
