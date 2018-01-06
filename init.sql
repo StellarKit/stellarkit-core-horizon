@@ -1,2 +1,0 @@
-CREATE DATABASE horizondb;
-GRANT ALL PRIVILEGES ON DATABASE horizondb TO stellar;
