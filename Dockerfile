@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch
 
 ENV STELLAR_CORE_VERSION 9.0.0-473-59482f9d
 ENV HORIZON_VERSION 0.11.1
