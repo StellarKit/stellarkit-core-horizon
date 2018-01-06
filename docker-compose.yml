@@ -16,7 +16,7 @@ services:
       - ~/stellar-test:/opt/stellar
     restart: unless-stopped
     depends_on:
-      - database
+      - nodedatabase
     environment:
       TESTNET: 1
       HORIZON_DB_DSN: "postgresql://stellar:password@nodedatabase/horizondb?sslmode=disable"
