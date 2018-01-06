@@ -16,6 +16,11 @@ function main() {
 	echo "Starting Stellar Node"
 	echo ""
 
+	while ! psql -c 'select 1' >/dev/null 2>&1; do
+    echo "Waiting for postgres to be available..."
+    sleep 1
+  done
+
 	build-config /configs/stellar.cfg > /opt/stellar/stellar.cfg
 	build-config /configs/horizon.env > /opt/stellar/horizon.env
 
@@ -36,7 +41,7 @@ function init_stellar_core() {
 		return 0
 	fi
 
-	stellar-core --newdb --conf $CORE_CONFIG
+	stellar-core --conf $CORE_CONFIG --newdb
 
 	touch $STELLAR_HOME/.core-initialized
  }
