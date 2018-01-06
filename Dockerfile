@@ -22,7 +22,7 @@ RUN ["chmod", "+x", "/start-core"]
 ADD start-horizon /
 RUN ["chmod", "+x", "/start-horizon"]
 
-ADD configs /
+ADD configs /configs
 RUN /build-config /configs/stellar.cfg > /opt/stellar/stellar.cfg
 RUN /build-config /configs/horizon.env > /opt/stellar/horizon.env
 
