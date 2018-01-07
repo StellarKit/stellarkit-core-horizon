@@ -22,6 +22,7 @@ services:
     depends_on:
       - nodedatabase
     environment:
+      POSTGRES_PASSWORD: password
       TESTNET:           1
       CORE_DB_DSN:       "postgresql://dbname=coredb host=nodedatabase user=stellar password=password sslmode=disable"
       HORIZON_DB_DSN:    "postgres://stellar:password@nodedatabase/horizondb?sslmode=disable"
