@@ -28,7 +28,6 @@ ADD start /
 RUN ["chmod", "+x", "/start"]
 
 ADD postgres-docker/.pgpass /
-RUN ["chmod", "600", "/.pgpass"]
 
 EXPOSE 5432
 EXPOSE 8000
