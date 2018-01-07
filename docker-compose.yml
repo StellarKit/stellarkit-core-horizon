@@ -1,11 +1,11 @@
 version:                 "3"
 services:
-  nodedatabase:
+  stellarpostgres:
     build:               ./postgres-docker
-    container_name:      postgres-node
+    container_name:      stellar-postgres
     restart:             unless-stopped
     volumes:
-      - ~/stellar-test/postgresql:/var/lib/postgresql/data
+      - ~/stellar-node/postgresql:/var/lib/postgresql/data
     environment:
       POSTGRES_USER:     stellar
       POSTGRES_DB:       coredb
@@ -13,19 +13,36 @@ services:
     networks:
       - default
 
-  stellarcore:
-    image:               sgehrman/stellar-node
-    container_name:      stellar-node
+  stellarhorizon:
+    build:               ./horizon-docker
+    container_name:      stellar-horizon
     volumes:
-      - ~/stellar-test:/opt/stellar
+      - ~/stellar-node/horizon:/opt/stellar
     restart:             unless-stopped
     depends_on:
-      - nodedatabase
+      - stellarpostgres
     environment:
       POSTGRES_PASSWORD: password
       TESTNET:           1
-      CORE_DB_DSN:       "postgresql://dbname=coredb host=nodedatabase user=stellar password=password sslmode=disable"
-      HORIZON_DB_DSN:    "postgres://stellar:password@nodedatabase/horizondb?sslmode=disable"
+      CORE_DB_DSN:       "postgresql://dbname=coredb host=stellarpostgres user=stellar password=password sslmode=disable"
+      HORIZON_DB_DSN:    "postgres://stellar:password@stellarpostgres/horizondb?sslmode=disable"
+    ports:
+      - "8000:8000"
+    networks:
+      - default
+
+  stellarcore:
+    build:               ./core-docker
+    container_name:      stellar-core
+    volumes:
+      - ~/stellar-node/core:/opt/stellar
+    restart:             unless-stopped
+    depends_on:
+      - stellarpostgres
+    environment:
+      POSTGRES_PASSWORD: password
+      TESTNET:           1
+      CORE_DB_DSN:       "postgresql://dbname=coredb host=stellarpostgres user=stellar password=password sslmode=disable"
     ports:
       - "8000:8000"
     networks:
