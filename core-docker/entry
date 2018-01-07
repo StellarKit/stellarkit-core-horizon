@@ -17,7 +17,7 @@ function main() {
 	build-config /configs/stellar.cfg > $STELLAR_HOME/stellar.cfg
 	build-config /configs/stellar-testnet.cfg > $STELLAR_HOME/stellar-testnet.cfg
 
-	build-config /.pgpass > /root/.pgpass
+	build-config /configs/.pgpass > /root/.pgpass
 	chmod 600 /root/.pgpass
 
  	init_stellar_core

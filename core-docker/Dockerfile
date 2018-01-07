@@ -23,8 +23,6 @@ ADD configs /configs
 ADD entry /
 RUN ["chmod", "+x", "/entry"]
 
-ADD postgres-docker/.pgpass /
-
 EXPOSE 11625
 EXPOSE 11626
 

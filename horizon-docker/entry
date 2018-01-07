@@ -17,7 +17,7 @@ function main() {
  	build-config /configs/horizon.env > $STELLAR_HOME/horizon.env
 	build-config /configs/horizon-testnet.env > $STELLAR_HOME/horizon-testnet.env
 
-	build-config /.pgpass > /root/.pgpass
+	build-config /configs/.pgpass > /root/.pgpass
 	chmod 600 /root/.pgpass
 
  	init_horizon

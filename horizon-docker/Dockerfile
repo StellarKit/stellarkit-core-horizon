@@ -23,8 +23,6 @@ ADD configs /configs
 ADD entry /
 RUN ["chmod", "+x", "/entry"]
 
-ADD postgres-docker/.pgpass /
-
 EXPOSE 8000
 
 ENTRYPOINT ["/start" ]
