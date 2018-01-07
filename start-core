@@ -8,4 +8,4 @@ done
 
 echo "starting core..."
 
-exec /usr/local/bin/stellar-core --conf $CORE_CONFIG
+stellar-core --conf $CORE_CONFIG

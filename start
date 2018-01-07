@@ -12,8 +12,6 @@ then
 fi
 
 function main() {
-	sleep 4
-
 	echo ""
 	echo "Starting Stellar Node"
 	echo ""
@@ -30,8 +28,7 @@ function main() {
  	init_stellar_core
 	init_horizon
 
-	/start-core
-	/start-horizon
+	exec /launcher
   }
 
 function init_stellar_core() {
@@ -59,5 +56,4 @@ function init_horizon() {
 	touch $STELLAR_HOME/.horizon-initialized
  }
 
-echo 'starting...'
 main

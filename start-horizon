@@ -14,4 +14,4 @@ done
 echo "starting horizon..."
 
 source $HORIZ_ENV
-exec /usr/local/bin/horizon $@
+horizon

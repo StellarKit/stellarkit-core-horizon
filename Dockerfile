@@ -27,6 +27,9 @@ ADD configs /configs
 ADD start /
 RUN ["chmod", "+x", "/start"]
 
+ADD launcher /
+RUN ["chmod", "+x", "/launcher"]
+
 ADD postgres-docker/.pgpass /
 
 EXPOSE 5432
