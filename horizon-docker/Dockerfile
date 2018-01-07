@@ -25,4 +25,4 @@ RUN ["chmod", "+x", "/entry"]
 
 EXPOSE 8000
 
-ENTRYPOINT ["/start" ]
+ENTRYPOINT ["/entry" ]
