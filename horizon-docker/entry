@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 set -e
 
-STELLAR_HOME="/opt/stellar"
+export STELLAR_HOME="/opt/stellar"
 
 export HORIZ_ENV="$STELLAR_HOME/horizon.env"
 if [ $TESTNET -gt 0 ]

@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 set -e
 
-STELLAR_HOME="/opt/stellar"
+export STELLAR_HOME="/opt/stellar"
 
 export CORE_CONFIG="$STELLAR_HOME/stellar.cfg"
 if [ $TESTNET -gt 0 ]
