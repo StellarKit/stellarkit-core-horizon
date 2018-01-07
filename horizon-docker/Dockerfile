@@ -12,7 +12,7 @@ RUN /install
 
 RUN ["mkdir", "-p", "/opt/stellar"]
 
-ADD ../tools/build-config /usr/bin/build-config
+ADD build-config /usr/bin/build-config
 RUN ["chmod", "+x", "/usr/bin/build-config"]
 
 ADD launch /
