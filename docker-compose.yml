@@ -5,7 +5,7 @@ services:
     container_name:       stellar-postgres
     restart:              unless-stopped
     volumes:
-      - ~/stellar-node/postgresql:/var/lib/postgresql/data
+      - ~/stellar/node/postgresql:/var/lib/postgresql/data
     environment:
       POSTGRES_USER:      stellar
       POSTGRES_DB:        coredb
@@ -17,7 +17,7 @@ services:
     build:                ./core-docker
     container_name:       stellar-core
     volumes:
-      - ~/stellar-node/core:/opt/stellar
+      - ~/stellar/node/core:/opt/stellar
     restart:              unless-stopped
     depends_on:
       - stellarpostgres
@@ -32,7 +32,7 @@ services:
     build:                ./horizon-docker
     container_name:       stellar-horizon
     volumes:
-      - ~/stellar-node/horizon:/opt/stellar
+      - ~/stellar/node/horizon:/opt/stellar
     restart:              unless-stopped
     depends_on:
       - stellarpostgres
