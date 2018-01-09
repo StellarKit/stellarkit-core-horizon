@@ -8,7 +8,7 @@ RUN /dependencies
 
 ADD install.sh /
 RUN ["chmod", "+x", "/install.sh"]
-RUN /install
+RUN /install.sh
 
 RUN ["mkdir", "-p", "/opt/stellar"]
 
