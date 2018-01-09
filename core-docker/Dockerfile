@@ -6,8 +6,8 @@ ADD dependencies /
 RUN ["chmod", "+x", "/dependencies"]
 RUN /dependencies
 
-ADD install /
-RUN ["chmod", "+x", "/install"]
+ADD install.sh /
+RUN ["chmod", "+x", "/install.sh"]
 RUN /install
 
 RUN ["mkdir", "-p", "/opt/stellar"]
@@ -15,15 +15,15 @@ RUN ["mkdir", "-p", "/opt/stellar"]
 ADD build-config /usr/bin/build-config
 RUN ["chmod", "+x", "/usr/bin/build-config"]
 
-ADD launch /
-RUN ["chmod", "+x", "/launch"]
+ADD launch.sh /
+RUN ["chmod", "+x", "/launch.sh"]
 
 ADD configs /configs
 
-ADD entry /
-RUN ["chmod", "+x", "/entry"]
+ADD entry.sh /
+RUN ["chmod", "+x", "/entry.sh"]
 
 EXPOSE 11625
 EXPOSE 11626
 
-ENTRYPOINT ["/entry" ]
+ENTRYPOINT ["/entry.sh" ]
