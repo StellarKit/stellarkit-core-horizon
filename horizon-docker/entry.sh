@@ -30,7 +30,7 @@ function main() {
   if [ $INSTALL_SSL_CERTS -gt 0 ]
   then
     # put a folder tls in your home directory with server.crt and server.key
-    cp -r ${STELLAR_HOME}/../tls/ ${STELLAR_HOME}/tls/
+    # doesn't work cp -r ${STELLAR_HOME}/../tls/ ${STELLAR_HOME}/tls/
   fi
 
   init_horizon
