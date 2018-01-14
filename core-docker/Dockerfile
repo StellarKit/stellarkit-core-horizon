@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-ENV STELLAR_CORE_VERSION 9.0.1-478-226ba55a
+ENV STELLAR_CORE_VERSION 9.0.1-487-df347396
 
 ADD dependencies /
 RUN ["chmod", "+x", "/dependencies"]
