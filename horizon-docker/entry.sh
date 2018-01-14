@@ -23,7 +23,7 @@ function main() {
 
   init_horizon
 
-  /launch
+  /launch.sh
 }
 
 function init_horizon() {

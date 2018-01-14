@@ -23,7 +23,7 @@ function main() {
 
   init_stellar_core
 
-  /launch
+  /launch.sh
 }
 
 function init_stellar_core() {
