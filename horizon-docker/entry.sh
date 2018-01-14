@@ -27,6 +27,11 @@ function main() {
   build-config /configs/horizon.env > $STELLAR_HOME/horizon.env
   build-config /configs/horizon-testnet.env > $STELLAR_HOME/horizon-testnet.env
 
+  if [ $INSTALL_SSL_CERTS -gt 0 ]
+  then
+    # put a folder tls in your home directory with server.crt and server.key
+    cp -r ${STELLAR_HOME}/../tls/ ${STELLAR_HOME}/tls/
+  fi
 
   init_horizon
 
