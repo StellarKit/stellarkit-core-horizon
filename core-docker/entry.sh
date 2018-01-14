@@ -15,11 +15,18 @@ function main() {
   echo "Starting Stellar Core"
   echo ""
 
+  build-config /configs/.pgpass > /root/.pgpass
+  chmod 600 /root/.pgpass
+
+  while ! psql -h stellarpostgres -U $POSTGRES_USER -c 'select 1' coredb &> /dev/null
+  do
+    echo "Waiting for coredb to be available..."
+    sleep 1
+  done
+
   build-config /configs/stellar.cfg > $STELLAR_HOME/stellar.cfg
   build-config /configs/stellar-testnet.cfg > $STELLAR_HOME/stellar-testnet.cfg
 
-  build-config /configs/.pgpass > /root/.pgpass
-  chmod 600 /root/.pgpass
 
   init_stellar_core
 

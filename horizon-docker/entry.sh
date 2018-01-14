@@ -15,11 +15,18 @@ function main() {
   echo "Starting Horizon"
   echo ""
 
+  build-config /configs/.pgpass > /root/.pgpass
+  chmod 600 /root/.pgpass
+
+  while ! psql -h stellarpostgres -U $POSTGRES_USER -c 'select 1' horizondb &> /dev/null
+  do
+    echo "Waiting for horizondb to be available..."
+    sleep 1
+  done
+
   build-config /configs/horizon.env > $STELLAR_HOME/horizon.env
   build-config /configs/horizon-testnet.env > $STELLAR_HOME/horizon-testnet.env
 
-  build-config /configs/.pgpass > /root/.pgpass
-  chmod 600 /root/.pgpass
 
   init_horizon
 

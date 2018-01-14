@@ -22,6 +22,7 @@ services:
     depends_on:
       - stellarpostgres
     environment:
+      POSTGRES_USER:      stellar
       POSTGRES_PASSWORD:  password
       TESTNET:            1
       CORE_DB_DSN:        "postgresql://dbname=coredb host=stellarpostgres user=stellar password=password sslmode=disable"
@@ -38,6 +39,7 @@ services:
       - stellarpostgres
       - stellarcore
     environment:
+      POSTGRES_USER:      stellar
       POSTGRES_PASSWORD:  password
       TESTNET:            1
       CORE_DB_DSN:        "postgres://stellar:password@stellarpostgres/coredb?sslmode=disable"
