@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e
 
@@ -14,8 +14,6 @@ function main() {
   echo ""
   echo "Starting Horizon"
   echo ""
-
-  sleep 2222
 
   build-config /configs/.pgpass > /root/.pgpass
   chmod 600 /root/.pgpass
