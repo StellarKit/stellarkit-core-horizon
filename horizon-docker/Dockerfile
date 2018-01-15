@@ -14,13 +14,13 @@ RUN mkdir -p /go/src/github.com/stellar/ \
 
 # ------------------------------------
 
-FROM debian:stretch
+FROM alpine:latest
 
 COPY --from=builder /go/bin/horizon /usr/local/bin/horizon
 
-ADD dependencies /
-RUN ["chmod", "+x", "/dependencies"]
-RUN /dependencies
+ADD apk-server /apk-server
+RUN chmod +x /apk-server
+RUN /apk-server
 
 RUN ["mkdir", "-p", "/opt/stellar"]
 
