@@ -1,0 +1,7 @@
+# dependencies
+apk update
+
+apk add python
+apk add libpq sqlite-dev libsasl postgresql-client postgresql postgresql-contrib sudo vim zlib-dev supervisor ca-certificates
+
+echo "Done installing dependencies..."
