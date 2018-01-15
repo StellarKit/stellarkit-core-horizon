@@ -15,8 +15,6 @@ function main() {
   echo "Starting Horizon"
   echo ""
 
-  sleep 22222
-
   build-config /configs/.pgpass > /root/.pgpass
   chmod 600 /root/.pgpass
 
