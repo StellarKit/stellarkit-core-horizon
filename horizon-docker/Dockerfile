@@ -16,7 +16,7 @@ RUN mkdir -p /go/src/github.com/stellar/ \
 
 FROM alpine:latest
 
-COPY --from=builder /go/bin/horizon /usr/local/bin/horizon
+COPY --from=builder /go/bin/horizon /usr/bin/horizon
 
 ADD apk-server /apk-server
 RUN chmod +x /apk-server
