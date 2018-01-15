@@ -1,14 +1,25 @@
+FROM golang:alpine as builder
+
+apk update
+apk add curl git wget mercurial make gcc musl-dev linux-headers
+
+# build horizon
+RUN mkdir -p /go/src/github.com/stellar/ \
+    && git clone --depth 1 --branch master https://github.com/stellar/go.git /go/src/github.com/stellar/go \
+    && cd /go/src/github.com/stellar/go \
+    && curl https://glide.sh/get | sh \
+    && glide install \
+    && go install github.com/stellar/go/services/horizon
+
+# ------------------------------------
+
 FROM debian:stretch
 
-ENV HORIZON_VERSION 0.11.1
+COPY --from=builder /go/bin/horizon /usr/local/bin/horizon
 
 ADD dependencies /
 RUN ["chmod", "+x", "/dependencies"]
 RUN /dependencies
-
-ADD install.sh /
-RUN ["chmod", "+x", "/install.sh"]
-RUN /install.sh
 
 RUN ["mkdir", "-p", "/opt/stellar"]
 
