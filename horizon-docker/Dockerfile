@@ -1,7 +1,8 @@
 FROM golang:alpine as builder
 
-apk update
-apk add curl git wget mercurial make gcc musl-dev linux-headers
+ADD apk-build /apk-build
+RUN chmod +x /apk-build
+RUN /apk-build
 
 # build horizon
 RUN mkdir -p /go/src/github.com/stellar/ \
