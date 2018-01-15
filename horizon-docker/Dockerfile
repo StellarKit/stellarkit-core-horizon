@@ -1,26 +1,14 @@
-FROM golang:alpine as builder
+FROM debian:stretch
 
-ADD apk-build /apk-build
-RUN chmod +x /apk-build
-RUN /apk-build
+ENV HORIZON_VERSION 0.11.1
 
-# build horizon
-RUN mkdir -p /go/src/github.com/stellar/ \
-    && git clone --depth 1 --branch master https://github.com/stellar/go.git /go/src/github.com/stellar/go \
-    && cd /go/src/github.com/stellar/go \
-    && curl https://glide.sh/get | sh \
-    && glide install \
-    && go install github.com/stellar/go/services/horizon
+ADD dependencies /
+RUN ["chmod", "+x", "/dependencies"]
+RUN /dependencies
 
-# ------------------------------------
-
-FROM alpine:latest
-
-COPY --from=builder /go/bin/horizon /usr/bin/horizon
-
-ADD apk-server /apk-server
-RUN chmod +x /apk-server
-RUN /apk-server
+ADD install.sh /
+RUN ["chmod", "+x", "/install.sh"]
+RUN /install.sh
 
 RUN ["mkdir", "-p", "/opt/stellar"]
 
