@@ -1,4 +1,4 @@
-FROM debian:stretch as builder
+FROM ubuntu:latest as builder
 
 ADD apt-build /
 RUN ["chmod", "+x", "/apt-build"]
@@ -16,7 +16,7 @@ RUN mkdir -p /go/src/github.com/stellar/ \
     && make install
 
 
-FROM debian:stretch
+FROM ubuntu:latest
 
 COPY --from=builder /usr/local/bin/stellar-core /usr/local/bin/stellar-core
 
