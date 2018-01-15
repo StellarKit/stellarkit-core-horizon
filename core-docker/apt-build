@@ -1,0 +1,5 @@
+# dependencies
+apt-get update
+apt-get install -y git clang-5.0 flex bison libpq-dev pkg-config software-properties-common autoconf automake libtool clang-format-5.0
+
+echo "\nDone installing dependencies...\n"

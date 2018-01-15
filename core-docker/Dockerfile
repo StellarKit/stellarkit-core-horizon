@@ -1,14 +1,28 @@
+FROM debian:stretch as builder
+
+ADD apt-build /
+RUN ["chmod", "+x", "/apt-build"]
+RUN /apt-build
+
+# deploy stellar-core binary
+RUN mkdir -p /go/src/github.com/stellar/ \
+    && git clone --depth 1 --branch master https://github.com/stellar/stellar-core /stellar-core \
+    && cd /stellar-core \
+    && git submodule init \
+    && git submodule update \
+    && ./autogen.sh \
+    && ./configure \
+    && make \
+    && make install
+
+
 FROM debian:stretch
 
-ENV STELLAR_CORE_VERSION 9.0.1-487-df347396
+COPY --from=builder /usr/local/bin/stellar-core /usr/local/bin/stellar-core
 
 ADD dependencies /
 RUN ["chmod", "+x", "/dependencies"]
 RUN /dependencies
-
-ADD install.sh /
-RUN ["chmod", "+x", "/install.sh"]
-RUN /install.sh
 
 RUN ["mkdir", "-p", "/opt/stellar"]
 
