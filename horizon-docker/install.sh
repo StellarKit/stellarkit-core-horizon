@@ -14,6 +14,8 @@ then
 else
   wget -O horizon.tar.gz https://github.com/stellar/horizon/releases/download/v${HORIZON_VERSION}/horizon-v${HORIZON_VERSION}-linux-amd64.tar.gz
   tar -zxvf horizon.tar.gz
+  pwd
+  ls
   mv /horizon-v${HORIZON_VERSION}-linux-amd64/horizon /usr/local/bin
   chmod +x /usr/local/bin/horizon
 
