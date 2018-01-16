@@ -14,7 +14,7 @@ RUN /install.sh
 # -----------------------
 FROM alpine:latest
 
-COPY --from=builder /go/bin/horizon /usr/local/bin/horizon
+COPY --from=builder /usr/local/bin/horizon /usr/local/bin/
 
 ADD apk-server /apk-server
 RUN chmod +x /apk-server
