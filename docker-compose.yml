@@ -22,7 +22,6 @@ services:
     depends_on:
       - stellarpostgres
     environment:
-      BUILD_FROM_SRC:     0
       POSTGRES_USER:      stellar
       POSTGRES_PASSWORD:  password
       TESTNET:            1
@@ -40,7 +39,6 @@ services:
       - stellarpostgres
       - stellarcore
     environment:
-      BUILD_FROM_SRC:     0
       POSTGRES_USER:      stellar
       POSTGRES_PASSWORD:  password
       TESTNET:            1
