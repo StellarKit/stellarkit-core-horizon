@@ -3,7 +3,7 @@
 if [ $BUILD_FROM_SRC -gt 0 ]
 then
   # deploy stellar-core binary
-  RUN mkdir -p /go/src/github.com/stellar/ \
+  mkdir -p /go/src/github.com/stellar/ \
     && git clone --depth 1 --branch master https://github.com/stellar/stellar-core /stellar-core \
     && cd /stellar-core \
     && git submodule init \
