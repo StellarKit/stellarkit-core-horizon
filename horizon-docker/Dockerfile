@@ -10,6 +10,7 @@ ADD install.sh /
 RUN chmod +x /install.sh
 RUN /install.sh
 
+# -----------------------
 FROM alpine:latest
 
 COPY --from=builder /go/bin/horizon /usr/local/bin/horizon

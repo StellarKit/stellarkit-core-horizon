@@ -10,6 +10,7 @@ ADD install.sh /
 RUN chmod +x /install.sh
 RUN /install.sh
 
+# -----------------------
 FROM ubuntu:xenial
 
 COPY --from=builder /usr/local/bin/stellar-core /usr/local/bin/stellar-core
