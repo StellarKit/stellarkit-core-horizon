@@ -1,4 +1,4 @@
-FROM ubuntu:latest as builder
+FROM debian:jessie as builder
 
 ADD apt-build /
 RUN ["chmod", "+x", "/apt-build"]
@@ -12,11 +12,11 @@ RUN mkdir -p /go/src/github.com/stellar/ \
     && git submodule update \
     && ./autogen.sh \
     && ./configure \
-    && make \
+    && make -j \
     && make install
 
 
-FROM ubuntu:latest
+FROM debian:jessie
 
 COPY --from=builder /usr/local/bin/stellar-core /usr/local/bin/stellar-core
 
