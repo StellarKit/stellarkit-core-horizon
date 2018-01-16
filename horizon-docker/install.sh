@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 if [ $BUILD_FROM_SRC -gt 0 ]
 then
