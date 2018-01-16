@@ -1,17 +1,14 @@
 FROM golang:alpine as builder
 
+ENV HORIZON_VERSION 0.11.1
+
 ADD apk-build /apk-build
 RUN chmod +x /apk-build
 RUN /apk-build
 
-# deploy horizon binary
-RUN mkdir -p /go/src/github.com/stellar/ \
-    && git clone --depth 1 --branch master https://github.com/stellar/go.git /go/src/github.com/stellar/go \
-    && cd /go/src/github.com/stellar/go \
-    && curl https://glide.sh/get | sh \
-    && glide install \
-    && go install github.com/stellar/go/services/horizon
-
+ADD install.sh /
+RUN chmod +x /install.sh
+RUN /install.sh
 
 FROM alpine:latest
 

@@ -1,20 +1,14 @@
 FROM ubuntu:xenial as builder
 
+ENV STELLAR_CORE_VERSION 9.0.1-487-df347396
+
 ADD apt-build /
 RUN ["chmod", "+x", "/apt-build"]
 RUN /apt-build
 
-# deploy stellar-core binary
-RUN mkdir -p /go/src/github.com/stellar/ \
-    && git clone --depth 1 --branch master https://github.com/stellar/stellar-core /stellar-core \
-    && cd /stellar-core \
-    && git submodule init \
-    && git submodule update \
-    && ./autogen.sh \
-    && ./configure \
-    && make -j \
-    && make install
-
+ADD install.sh /
+RUN chmod +x /install.sh
+RUN /install.sh
 
 FROM ubuntu:xenial
 
