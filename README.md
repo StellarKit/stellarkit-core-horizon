@@ -24,7 +24,9 @@ Edit docker-compose.yml for mainnet
 Pull requests welcome!
 
 ### Donations
-If you like this code, a [`donation`](https://stellarkit.io/#/donate) would be appreciated.
+If you like the code, a donation would be appreciated. Even a single XLM!
+
+Click here for the [`donation page`](https://stellarkit.io/#/donate). Nano support!
 
 ```
 XLM: GCYQSB3UQDSISB5LKAL2OEVLAYJNIR7LFVYDNKRMLWQKDCBX4PU3Z6JP
