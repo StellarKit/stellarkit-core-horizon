@@ -29,7 +29,20 @@ function main() {
 
   init_horizon
 
-  /launch.sh
+  launch=true
+  if [ $INSTALL_SSL_CERTS -gt 0 ]
+  then
+    if [ ! -d $STELLAR_HOME/tls ]
+    then
+      echo "Add tls directory!"
+      launch=false
+    fi
+  fi
+
+  if [ launch ]
+  then
+    /launch.sh
+  fi
 }
 
 function init_horizon() {
