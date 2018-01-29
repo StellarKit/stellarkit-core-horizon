@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $BUILD_FROM_SRC -gt 0 ]
+if [ "$BUILD_FROM_SRC" = true ]
 then
   # deploy stellar-core binary
   mkdir -p /go/src/github.com/stellar/ \

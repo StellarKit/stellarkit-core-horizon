@@ -13,7 +13,7 @@ Defaults to testnet.
 Creates a folder 'stellar' in your home folder.  Everything is stored there, delete it to reset.
 
 This docker downloads and uses executables for core and horizon from Stellar.
-If you want to build from stellars master branch on GitHub, Find BUILD_FROM_SRC and set to 1.
+If you want to build from stellars master branch on GitHub, Find BUILD_FROM_SRC and set to true.
 Find BUILD_FROM_SRC in /core-docker/Dockerfile and horizon-docker/Dockerfile
 
 ### SSL NOTE:

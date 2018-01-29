@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ $BUILD_FROM_SRC -gt 0 ]
+if [ "$BUILD_FROM_SRC" = true ]
 then
   # deploy horizon binary
   mkdir -p /go/src/github.com/stellar/ \
