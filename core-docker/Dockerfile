@@ -1,7 +1,7 @@
 FROM ubuntu:xenial as builder
 
 ENV STELLAR_CORE_VERSION 9.0.1-487-df347396
-ENV BUILD_FROM_SRC false
+ENV BUILD_FROM_SRC 0
 
 ADD apt-build /
 RUN ["chmod", "+x", "/apt-build"]
