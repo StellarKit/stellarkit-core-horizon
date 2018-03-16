@@ -1,6 +1,6 @@
 FROM golang:alpine as builder
 
-ENV HORIZON_VERSION 0.11.1
+ENV HORIZON_VERSION 0.12.2
 ENV BUILD_FROM_SRC 0
 
 ADD apk-build /apk-build
