@@ -1,24 +1,20 @@
-FROM golang:alpine as builder
+FROM golang:stretch as builder
 
 ENV HORIZON_VERSION 0.12.2
 ENV BUILD_FROM_SRC 1
-
-ADD apk-build /apk-build
-RUN chmod +x /apk-build
-RUN /apk-build
 
 ADD install.sh /
 RUN chmod +x /install.sh
 RUN /install.sh
 
 # -----------------------
-FROM alpine:latest
+FROM debian:latest
 
 COPY --from=builder /usr/local/bin/horizon /usr/local/bin/
 
-ADD apk-server /apk-server
-RUN chmod +x /apk-server
-RUN /apk-server
+ADD apt-server /apt-server
+RUN chmod +x /apt-server
+RUN /apt-server
 
 RUN ["mkdir", "-p", "/opt/stellar"]
 

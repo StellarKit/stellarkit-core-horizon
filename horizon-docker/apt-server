@@ -1,0 +1,6 @@
+# dependencies
+apt-get update
+apt-get install -y libpq-dev libsqlite3-dev libsasl2-dev postgresql-client postgresql postgresql-contrib zlib1g-dev python
+apt-get clean
+
+echo "Done installing dependencies..."
