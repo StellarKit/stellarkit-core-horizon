@@ -1,7 +1,7 @@
-FROM golang:stretch as builder
+FROM golang:alpine as builder
 
 ENV HORIZON_VERSION 0.12.2
-ENV BUILD_FROM_SRC 0
+ENV BUILD_FROM_SRC 1
 
 ADD apk-build /apk-build
 RUN chmod +x /apk-build
@@ -12,7 +12,7 @@ RUN chmod +x /install.sh
 RUN /install.sh
 
 # -----------------------
-FROM stretch:latest
+FROM alpine:latest
 
 COPY --from=builder /usr/local/bin/horizon /usr/local/bin/
 
