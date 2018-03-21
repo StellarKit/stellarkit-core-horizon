@@ -1,12 +1,11 @@
-## Stellar Core Horizon  
+## Stellar Core Horizon
 
 ### The simplest and cleanest Docker image for running stellar core and horizon
 
 Build and run:
-```
-docker-compose build
-docker-compose up -d
-```
+
+    docker-compose build
+    docker-compose up -d
 
 Defaults to testnet.
 
@@ -17,6 +16,7 @@ If you want to build from stellars master branch on GitHub, Find BUILD_FROM_SRC 
 Find BUILD_FROM_SRC in /core-docker/Dockerfile and horizon-docker/Dockerfile
 
 ### SSL NOTE:
+
 Start it up once and stop it, for SSL to work you need to copy a folder named 'tsl' inside ~/stellar/node/horizon with your server.crt and server.key
 
 Edit docker-compose.yml for mainnet
@@ -24,10 +24,9 @@ Edit docker-compose.yml for mainnet
 Pull requests welcome!
 
 ### Donations
+
 If you like the code, a donation would be appreciated. Even a single XLM!
 
 Click here for the [`donation page`](https://stellarkit.io/#/donate). Nano support!
 
-```
-XLM: GCYQSB3UQDSISB5LKAL2OEVLAYJNIR7LFVYDNKRMLWQKDCBX4PU3Z6JP
-```
+    XLM: GBJC6AF4I5FUTYMG4CXC3V2NYMIQANBRB4UQYY3M2RRZCXCNLFR7TN7J
