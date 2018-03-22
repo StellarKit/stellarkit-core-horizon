@@ -29,9 +29,9 @@ function main() {
 
   init_horizon
 
-  if [ ! -f $SSL_CERT_PUBLIC ]
+  if [ ! -d $STELLAR_HOME/tls ]
   then
-    echo "Add correct SSL cert paths to docker-compose.yml for HTTPS"
+    echo "Add tls directory for https - see Readme file for more information"
   fi
 
   /launch.sh
