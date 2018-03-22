@@ -29,20 +29,12 @@ function main() {
 
   init_horizon
 
-  launch=true
-  if [ $INSTALL_SSL_CERTS -gt 0 ]
+  if [ ! -d $STELLAR_HOME/tls ]
   then
-    if [ ! -d $STELLAR_HOME/tls ]
-    then
-      echo "Add tls directory!"
-      launch=false
-    fi
+    echo "Add tls directory for https - see Readme file for more information"
   fi
 
-  if [ launch ]
-  then
-    /launch.sh
-  fi
+  /launch.sh
 }
 
 function init_horizon() {

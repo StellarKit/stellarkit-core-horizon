@@ -42,7 +42,6 @@ services:
       POSTGRES_USER:     stellar
       POSTGRES_PASSWORD: password
       TESTNET:           1
-      INSTALL_SSL_CERTS: 1
       CORE_DB_DSN:       "postgres://stellar:password@stellarpostgres/coredb?sslmode=disable"
       HORIZON_DB_DSN:    "postgres://stellar:password@stellarpostgres/horizondb?sslmode=disable"
     ports:
