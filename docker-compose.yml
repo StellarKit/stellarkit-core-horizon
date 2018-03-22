@@ -44,6 +44,8 @@ services:
       TESTNET:           1
       CORE_DB_DSN:       "postgres://stellar:password@stellarpostgres/coredb?sslmode=disable"
       HORIZON_DB_DSN:    "postgres://stellar:password@stellarpostgres/horizondb?sslmode=disable"
+      SSL_CERT_PUBLIC:   "/etc/letsencrypt/live/stellarkit.io/fullchain.pem"
+      SSL_CERT_PRIVATE:  "/etc/letsencrypt/live/stellarkit.io/privkey.pem"
     ports:
       - "8000:8000"
     networks:
