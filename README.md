@@ -1,4 +1,4 @@
-## Stellar Core Horizon
+## StellarKit Core Horizon
 
 ### The simplest and cleanest Docker image for running stellar core and horizon
 
@@ -22,6 +22,8 @@ Start it up once and stop it, for SSL to work you need to copy a folder named 't
 Edit docker-compose.yml for mainnet
 
 Pull requests welcome!
+
+Disclaimer: We not affiliated with, or sponsored or endorsed by, the Stellar Development Foundation.
 
 ### Donations
 
