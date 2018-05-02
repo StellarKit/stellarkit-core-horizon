@@ -23,5 +23,5 @@ else
   mv ./horizon-v${HORIZON_VERSION}-linux-amd64/horizon /usr/local/bin
   chmod +x /usr/local/bin/horizon
 
-  echo "\nDone installing stellar-core...\n"
+  echo "\nDone installing stellar-horizon...\n"
 fi
