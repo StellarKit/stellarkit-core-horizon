@@ -1,6 +1,7 @@
 FROM ubuntu:xenial as builder
 
 ENV STELLAR_CORE_VERSION 9.2.0-610-d200c00e
+ENV STELLAR_CORE_TAG v9.2.0
 ENV BUILD_FROM_SRC 1
 
 ADD apt-build /

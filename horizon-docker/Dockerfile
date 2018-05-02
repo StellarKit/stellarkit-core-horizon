@@ -1,6 +1,8 @@
 FROM golang:stretch as builder
 
 ENV HORIZON_VERSION 0.12.3
+ENV HORIZON_TAG horizon-v0.12.3
+
 ENV BUILD_FROM_SRC 1
 
 ADD install.sh /
