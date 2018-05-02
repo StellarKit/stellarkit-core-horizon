@@ -3,7 +3,7 @@ FROM golang:stretch as builder
 ENV HORIZON_VERSION 0.12.3
 ENV HORIZON_TAG horizon-v0.12.3
 
-ENV BUILD_FROM_SRC 1
+ENV BUILD_FROM_SRC 0
 
 ADD install.sh /
 RUN chmod +x /install.sh
