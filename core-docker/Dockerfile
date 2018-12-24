@@ -1,4 +1,4 @@
-FROM ubuntu as builder
+FROM ubuntu:xenial as builder
 
 ENV STELLAR_CORE_VERSION 10.1.0
 ENV STELLAR_CORE_TAG v10.1.0
@@ -13,7 +13,7 @@ RUN chmod +x /install.sh
 RUN /install.sh
 
 # -----------------------
-FROM ubuntu
+FROM ubuntu:xenial
 
 COPY --from=builder /usr/local/bin/stellar-core /usr/local/bin/stellar-core
 
