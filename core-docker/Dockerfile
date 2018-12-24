@@ -4,6 +4,8 @@ ENV STELLAR_CORE_VERSION 10.1.0
 ENV STELLAR_CORE_TAG v10.1.0
 ENV BUILD_FROM_SRC 1
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 ADD apt-build /
 RUN ["chmod", "+x", "/apt-build"]
 RUN /apt-build

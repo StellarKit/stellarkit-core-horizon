@@ -1,8 +1,5 @@
 # dependencies
 
-# for Configuring tzdata
-export DEBIAN_FRONTEND=noninteractive
-
 apt-get update
 apt-get install -y git wget clang make flex bison libpq-dev pkg-config software-properties-common autoconf automake libtool clang-format-5.0 pandoc
 
