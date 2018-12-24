@@ -1,5 +1,5 @@
 # dependencies
 apt-get update
-apt-get install -y git wget clang make flex bison libpq-dev pkg-config software-properties-common autoconf automake libtool clang-format-5.0 pandoc
+apt-get install -y git wget clang make flex bison libpq-dev pkg-config software-properties-common autoconf automake libtool clang-format-5.0 pandoc build-essential
 
 echo "\nDone installing dependencies...\n"
