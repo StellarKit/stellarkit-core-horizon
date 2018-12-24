@@ -4,8 +4,6 @@ ENV STELLAR_CORE_VERSION 10.1.0
 ENV STELLAR_CORE_TAG v10.1.0
 ENV BUILD_FROM_SRC 1
 
-ARG DEBIAN_FRONTEND=noninteractive
-
 ADD apt-build /
 RUN ["chmod", "+x", "/apt-build"]
 RUN /apt-build
@@ -16,6 +14,8 @@ RUN /install.sh
 
 # -----------------------
 FROM ubuntu:latest
+
+ARG DEBIAN_FRONTEND=noninteractive
 
 COPY --from=builder /usr/local/bin/stellar-core /usr/local/bin/stellar-core
 
