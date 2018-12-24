@@ -10,7 +10,7 @@ then
     && git submodule update \
     && ./autogen.sh \
     && ./configure \
-    && make -j \
+    && make -j2 \
     && make install
 else
   wget -O stellar-core.deb https://s3.amazonaws.com/stellar.org/releases/stellar-core/stellar-core-${STELLAR_CORE_VERSION}_amd64.deb
