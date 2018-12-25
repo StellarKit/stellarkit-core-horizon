@@ -3,4 +3,4 @@ set -e
 
 echo "starting core..."
 
-exec stellar-core --conf $CORE_CONFIG
+exec stellar-core run --conf $CORE_CONFIG
