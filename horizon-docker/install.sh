@@ -10,8 +10,8 @@ then
   mkdir -p /go/src/github.com/stellar/ \
     && git clone --depth 1 --branch ${HORIZON_TAG} https://github.com/stellar/go.git /go/src/github.com/stellar/go \
     && cd /go/src/github.com/stellar/go \
-    && curl https://glide.sh/get | sh \
-    && glide install \
+    && curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh \
+    && dep ensure -v \
     && go install github.com/stellar/go/services/horizon
 
   mv /go/bin/horizon /usr/local/bin
